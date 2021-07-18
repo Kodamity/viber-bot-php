@@ -26,6 +26,7 @@ class ButtonTest extends TestCase
         ->setTextVAlign('top')
         ->setTextHAlign('center')
         ->setTextOpacity(50)
+        ->setSilent(true)
         ->setTextSize('small');
 
         $this->assertEquals([
@@ -43,6 +44,7 @@ class ButtonTest extends TestCase
           'TextHAlign' => 'center',
           'TextOpacity' => 50,
           'TextSize' => 'small',
+          'Silent' => true,
         ], $btn->toApiArray(), "Equal Button constructor", 0.0, 1,true);
     }
 }
