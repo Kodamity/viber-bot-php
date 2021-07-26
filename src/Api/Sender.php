@@ -7,29 +7,8 @@ namespace Viber\Api;
  *
  * @author Novikov Bogdan <hcbogdan@gmail.com>
  */
-class Sender extends Entity
+class Sender extends User
 {
-    /**
-     * Viber User id
-     *
-     * @var string
-     */
-    protected $id;
-
-    /**
-     * Viber name
-     *
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * URL of the user's avatar
-     *
-     * @var string
-     */
-    protected $avatar;
-
     /**
      * {@inheritDoc}
      */

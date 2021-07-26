@@ -187,6 +187,25 @@ class Bot
         echo json_encode($entity->toApiArray());
     }
 
+    public function getEventFromInput(): Event
+    {
+        // check body
+        $eventBody = $this->getInputBody();
+
+        if (!Signature::isValid($this->getSignHeaderValue(), $eventBody, $this->getClient()->getToken())) {
+            throw new \RuntimeException('Invalid signature header', 2);
+        }
+
+        // check json
+        $eventBody = json_decode($eventBody, true);
+        if (json_last_error() || empty($eventBody) || !is_array($eventBody)) {
+            throw new \RuntimeException('Invalid json request', 3);
+        }
+
+        // make event from json
+        return Factory::makeFromApi($eventBody);
+    }
+
     /**
      * Start bot process
      *
@@ -197,23 +216,7 @@ class Bot
     public function run($event = null)
     {
         if (null === $event) {
-            // check body
-            $eventBody = $this->getInputBody();
-
-            if (!Signature::isValid(
-                $this->getSignHeaderValue(),
-                $eventBody,
-                $this->getClient()->getToken()
-            )) {
-                throw new \RuntimeException('Invalid signature header', 2);
-            }
-            // check json
-            $eventBody = json_decode($eventBody, true);
-            if (json_last_error() || empty($eventBody) || !is_array($eventBody)) {
-                throw new \RuntimeException('Invalid json request', 3);
-            }
-            // make event from json
-            $event = Factory::makeFromApi($eventBody);
+            $event = $this->getEventFromInput();
         } elseif (!$event instanceof Event) {
             throw new \RuntimeException('Event must be instance of \Viber\Api\Event', 4);
         }
