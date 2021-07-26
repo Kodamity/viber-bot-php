@@ -1,5 +1,5 @@
 {
-    "name": "bogdaan/viber-bot-php",
+    "name": "miserenkov/viber-bot-php",
     "description": "Php bot interface to work with Viber API",
     "keywords": ["viber", "im", "bot"],
     "type": "library",
@@ -8,6 +8,10 @@
         {
             "name": "Novikov Bogdan",
             "email": "hcbogdan@gmail.com"
+        },
+        {
+            "name": "Misha Serenkov",
+            "email": "mi.serenkov@gmail.com"
         }
     ],
     "require": {
