@@ -46,6 +46,15 @@ class Location extends Message
         return $this->location;
     }
 
+    public function getLongitude()
+    {
+        return $this->location['lon'] ?? 0.0;
+    }
+    public function getLatitude()
+    {
+        return $this->location['lat'] ?? 0.0;
+    }
+
     /**
      * Set the value of Location coordinates.
      *

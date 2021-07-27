@@ -63,6 +63,21 @@ class Contact extends Message
         return $this->name;
     }
 
+    public function getFirstName()
+    {
+        $parts = explode(' ', $this->name);
+
+        return array_shift($parts);
+    }
+
+    public function getLastName()
+    {
+        $parts = explode(' ', $this->name);
+        array_shift($parts);
+
+        return implode(' ', $parts);
+    }
+
     /**
      * Set the value of Name of the contact. Max 28 characters.
      *
@@ -110,6 +125,7 @@ class Contact extends Message
      */
     public function setConcat($contact)
     {
+        $this->name = $contact['name'] ?? null;
         $this->phone_number = $contact['phone_number'];
 
         return $this;

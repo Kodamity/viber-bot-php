@@ -21,6 +21,13 @@ class Sticker extends Message
     protected $sticker_id;
 
     /**
+     * URL of the sticker
+     *
+     * @var string
+     */
+    protected $media;
+
+    /**
      * {@inheritdoc}
      */
     public function getType()
@@ -35,6 +42,7 @@ class Sticker extends Message
     {
         return array_merge(parent::toArray(), [
             'sticker_id' => $this->getStickerId(),
+            'media' => $this->getMedia(),
         ]);
     }
 
@@ -58,6 +66,30 @@ class Sticker extends Message
     public function setStickerId($sticker_id)
     {
         $this->sticker_id = $sticker_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of URL of the sticker
+     *
+     * @return string
+     */
+    public function getMedia()
+    {
+        return $this->media;
+    }
+
+    /**
+     * Set the value of URL of the sticker
+     *
+     * @param string media
+     *
+     * @return static
+     */
+    public function setMedia($media)
+    {
+        $this->media = $media;
 
         return $this;
     }
