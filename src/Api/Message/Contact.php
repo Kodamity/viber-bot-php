@@ -25,11 +25,14 @@ class Contact extends Message
      */
     protected $phone_number;
 
+    protected $text = null;
+
     /**
      * {@inheritdoc}
      */
     protected $propertiesMap = [
-        'contact' => 'setConcat'
+        'contact' => 'setConcat',
+        'text' => 'setText'
     ];
 
     /**
@@ -129,5 +132,15 @@ class Contact extends Message
         $this->phone_number = $contact['phone_number'];
 
         return $this;
+    }
+
+    public function setText($text)
+    {
+        $this->text = $text;
+    }
+
+    public function getText()
+    {
+        return $this->text;
     }
 }
