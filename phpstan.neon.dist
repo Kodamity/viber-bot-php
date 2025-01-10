@@ -1,0 +1,27 @@
+includes:
+    - ./vendor/phpstan/phpstan-deprecation-rules/rules.neon
+
+services:
+
+parameters:
+    parallel:
+        processTimeout: 1200.0
+
+    stubFiles:
+        - phpstan-annotation.php.stub
+
+    paths:
+        - src
+        - tests
+
+    # The level 9 is the highest level
+    level: 5
+
+    ignoreErrors:
+
+    excludePaths:
+        - examples/
+        - *.php.stub
+        - *.stub
+
+    reportUnmatchedIgnoredErrors: false

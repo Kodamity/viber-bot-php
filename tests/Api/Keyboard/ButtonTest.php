@@ -45,6 +45,6 @@ class ButtonTest extends TestCase
           'TextOpacity' => 50,
           'TextSize' => 'small',
           'Silent' => true,
-        ], $btn->toApiArray(), "Equal Button constructor", 0.0, 1,true);
+        ], $btn->toApiArray(), "Equal Button constructor");
     }
 }

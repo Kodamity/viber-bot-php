@@ -15,33 +15,30 @@ use GuzzleHttp\Exception\RequestException;
  */
 class ClientTest extends TestCase
 {
-    /**
-     * @expectedException \Viber\Api\Exception\ApiException
-     * @expectedExceptionMessageRegExp |^No token .*|
-     */
     public function testNoToken()
     {
+        $this->expectException(\Viber\Api\Exception\ApiException::class);
+        $this->expectExceptionMessageMatches('/No token.*/');
+
         new Client([]);
     }
 
-    /**
-     * @expectedException \Viber\Api\Exception\ApiException
-     * @expectedExceptionMessageRegExp |^Invalid webhook .*|
-     */
     public function testInvalidHttpHook()
     {
+        $this->expectException(\Viber\Api\Exception\ApiException::class);
+        $this->expectExceptionMessageMatches('/^Invalid webhook .*/');
+
         (new Client([
             'token' => 'some-token'
         ]))
         ->setWebhook('http://some.url');
     }
 
-    /**
-     * @expectedException \Viber\Api\Exception\ApiException
-     * @expectedExceptionMessageRegExp |Remote error: ...|
-     */
     public function testServerError()
     {
+        $this->expectException(\Viber\Api\Exception\ApiException::class);
+        $this->expectExceptionMessageMatches('/Remote error.*/');
+
         $responseData = json_encode([
             'status' => 3,
             'status_message' => '...',

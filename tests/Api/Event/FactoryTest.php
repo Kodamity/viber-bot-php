@@ -2,6 +2,7 @@
 
 namespace Viber\Tests\Api\Event;
 
+use Viber\Api\Exception\ApiException;
 use Viber\Tests\TestCase;
 use Viber\Api\Event\Factory;
 use Viber\Api\Event\Type;
@@ -11,21 +12,19 @@ use Viber\Api\Event\Type;
  */
 class FactoryTest extends TestCase
 {
-    /**
-     * @expectedException \Viber\Api\Exception\ApiException
-     * @expectedExceptionMessageRegExp |Unknow.*|
-     */
     public function testUnknowEvent()
     {
+        $this->expectException(ApiException::class);
+        $this->expectExceptionMessageMatches('/Unknow.*/');
+
         Factory::makeFromApi([]);
     }
 
-    /**
-     * @expectedException \Viber\Api\Exception\ApiException
-     * @expectedExceptionMessageRegExp |Unknow.*|
-     */
     public function testUnknowEventName()
     {
+        $this->expectException(ApiException::class);
+        $this->expectExceptionMessageMatches('/Unknow.*/');
+
         Factory::makeFromApi([
             'event' => '8)'
         ]);

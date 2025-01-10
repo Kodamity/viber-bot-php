@@ -17,7 +17,7 @@ class MessageTest extends TestCase
     {
         $message =
             (new Message())
-            ->setSender(new Sender())
+            ->setSender(new Sender([]))
             ->setReceiver('some-user-id')
             ->setTrackingData('user-track')
             ->setKeyboard(

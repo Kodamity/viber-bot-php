@@ -2,6 +2,8 @@
 
 namespace Viber\Tests;
 
+use RuntimeException;
+use Viber\Api\Exception\ApiException;
 use Viber\Bot;
 use Viber\Api\Event;
 use Viber\Api\Signature;
@@ -13,11 +15,10 @@ require_once(__DIR__.'/Functions.php');
  */
 class BotTest extends TestCase
 {
-    /**
-     * @expectedException \RuntimeException
-     */
     public function testNoOptions()
     {
+        $this->expectException(RuntimeException::class);
+
         new Bot([]);
     }
 
@@ -62,37 +63,34 @@ class BotTest extends TestCase
         $this->assertEquals(0, $totalCalls);
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessageRegExp |.*header not found.*|
-     */
     public function testRunNoHeader()
     {
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessageMatches('/.*header not found.*/');
+
         $bot = new Bot(['token' => '-']);
         $bot->run();
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessageRegExp |.*Event.*|
-     */
     public function testRunInvalidParams()
     {
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessageMatches('/.*Event.*.*/');
+
         $bot = new Bot(['token' => '-']);
         $bot->run('some arg');
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessageRegExp |Invalid signature.*|
-     */
     public function testInvalidSignature()
     {
-        $stub = $this->getMock(
-            Bot::class,
-            ['getInputBody', 'getSignHeaderValue'],
-            [['token' => '-']]
-        );
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessageMatches('/.*Invalid signature.*/');
+
+        // Create a mock object using getMockBuilder
+        $stub = $this->getMockBuilder(Bot::class)
+            ->setConstructorArgs([['token' => '-']])
+            ->onlyMethods(['getInputBody', 'getSignHeaderValue'])
+            ->getMock();
 
         $stub->method('getInputBody')
             ->willReturn('1');
@@ -102,17 +100,16 @@ class BotTest extends TestCase
         $stub->run();
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessageRegExp |Invalid json.*|
-     */
     public function testInvalidBody()
     {
-        $stub = $this->getMock(
-            Bot::class,
-            ['getInputBody', 'getSignHeaderValue'],
-            [['token' => '-']]
-        );
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessageMatches('/.*Invalid json.*/');
+
+        // Create a mock object using getMockBuilder
+        $stub = $this->getMockBuilder(Bot::class)
+            ->setConstructorArgs([['token' => '-']])
+            ->onlyMethods(['getInputBody', 'getSignHeaderValue'])
+            ->getMock();
 
         $inputBody = '1'; // valid json
 
@@ -127,17 +124,16 @@ class BotTest extends TestCase
         $stub->run();
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessageRegExp |Invalid json.*|
-     */
     public function testInvalidJsonBody()
     {
-        $stub = $this->getMock(
-            Bot::class,
-            ['getInputBody', 'getSignHeaderValue'],
-            [['token' => '-']]
-        );
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessageMatches('/.*Invalid json.*/');
+
+        // Create a mock object using getMockBuilder
+        $stub = $this->getMockBuilder(Bot::class)
+            ->setConstructorArgs([['token' => '-']])
+            ->onlyMethods(['getInputBody', 'getSignHeaderValue'])
+            ->getMock();
 
         $inputBody = '}{'; // invalid json
 
@@ -151,17 +147,16 @@ class BotTest extends TestCase
         $stub->run();
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessageRegExp |Invalid json.*|
-     */
     public function testEmptyJsonBody()
     {
-        $stub = $this->getMock(
-            Bot::class,
-            ['getInputBody', 'getSignHeaderValue'],
-            [['token' => '-']]
-        );
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessageMatches('/.*Invalid json.*/');
+
+        // Create a mock object using getMockBuilder
+        $stub = $this->getMockBuilder(Bot::class)
+            ->setConstructorArgs([['token' => '-']])
+            ->onlyMethods(['getInputBody', 'getSignHeaderValue'])
+            ->getMock();
 
         $inputBody = '{}'; // empty object
 
@@ -175,16 +170,15 @@ class BotTest extends TestCase
         $stub->run();
     }
 
-    /**
-     * @expectedException \Viber\Api\Exception\ApiException
-     */
     public function testUnknowJsonBody()
     {
-        $stub = $this->getMock(
-            Bot::class,
-            ['getInputBody', 'getSignHeaderValue'],
-            [['token' => '-']]
-        );
+        $this->expectException(ApiException::class);
+
+        // Create a mock object using getMockBuilder
+        $stub = $this->getMockBuilder(Bot::class)
+            ->setConstructorArgs([['token' => '-']])
+            ->onlyMethods(['getInputBody', 'getSignHeaderValue'])
+            ->getMock();
 
         $inputBody = '{"event": "-"}'; // unknow event
 
@@ -303,7 +297,7 @@ class BotTest extends TestCase
             'text' => 'Can i help you?',
             'tracking_data' => 'hi-conversation',
         ]);
-        \Viber\Output::reset();
+        \Viber\Tests\Output::reset();
         $this->expectOutputString(
             json_encode($textMessage->toApiArray())
         );
@@ -329,6 +323,6 @@ class BotTest extends TestCase
                 ]
             ])
         );
-        $this->assertContains('Content-Type: application/json', \Viber\Output::$headers);
+        $this->assertContains(['Content-Type: application/json'], \Viber\Tests\Output::$headers);
     }
 }

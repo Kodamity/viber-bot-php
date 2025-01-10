@@ -1,6 +1,6 @@
 <?php
 
-namespace Viber;
+namespace Viber\Tests;
 
 /**
  * Overide output

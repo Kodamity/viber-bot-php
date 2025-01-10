@@ -2,6 +2,7 @@
 
 namespace Viber\Tests\Api\Message;
 
+use Viber\Api\Exception\ApiException;
 use Viber\Tests\TestCase;
 use Viber\Api\Message\Factory;
 use Viber\Api\Message\Type;
@@ -11,11 +12,10 @@ use Viber\Api\Message\Type;
  */
 class FactoryTest extends TestCase
 {
-    /**
-     * @expectedException \Viber\Api\Exception\ApiException
-     */
     public function testUnknowType()
     {
+        $this->expectException(ApiException::class);
+
         Factory::makeFromApi(['type' => '-']);
     }
 
