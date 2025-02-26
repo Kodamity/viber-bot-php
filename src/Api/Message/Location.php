@@ -32,7 +32,7 @@ class Location extends Message
     public function toArray()
     {
         return array_merge(parent::toArray(), [
-            'location' => $this->getLocation()
+            'location' => $this->getLocation(),
         ]);
     }
 

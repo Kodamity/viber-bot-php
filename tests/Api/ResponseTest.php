@@ -19,7 +19,7 @@ class ResponseTest extends TestCase
         $this->expectExceptionMessageMatches('/.*body.*/');
 
         $r = \Viber\Api\Response::create(
-            new Response(200, [], '')
+            new Response(200, [], ''),
         );
     }
 
@@ -32,7 +32,7 @@ class ResponseTest extends TestCase
             'status' => 1,
         ]);
         $r = \Viber\Api\Response::create(
-            new Response(200, [], $responseData)
+            new Response(200, [], $responseData),
         );
     }
 
@@ -42,10 +42,10 @@ class ResponseTest extends TestCase
         $this->expectExceptionMessageMatches('/.*json.*/');
 
         $responseData = json_encode([
-            'no_status' => 'no_status'
+            'no_status' => 'no_status',
         ]);
         $r = \Viber\Api\Response::create(
-            new Response(200, [], $responseData)
+            new Response(200, [], $responseData),
         );
     }
 }

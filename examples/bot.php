@@ -47,7 +47,7 @@ try {
                 (new \Viber\Api\Message\Text())
                     ->setSender($botSender)
                     ->setReceiver($event->getSender()->getId())
-                    ->setText('I do not know )')
+                    ->setText('I do not know )'),
             );
         })
         ->onText('|.*|s', function ($event) use ($bot, $botSender, $log) {
@@ -57,7 +57,7 @@ try {
                 (new \Viber\Api\Message\Text())
                     ->setSender($botSender)
                     ->setReceiver($event->getSender()->getId())
-                    ->setText('HI!')
+                    ->setText('HI!'),
             );
         })
         ->onPicture(function ($event) use ($bot, $botSender, $log) {
@@ -66,7 +66,7 @@ try {
                 (new \Viber\Api\Message\Text())
                     ->setSender($botSender)
                     ->setReceiver($event->getSender()->getId())
-                    ->setText('Nice picture ;-)')
+                    ->setText('Nice picture ;-)'),
             );
         })
         ->on(function ($event) {

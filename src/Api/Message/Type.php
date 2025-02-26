@@ -9,13 +9,13 @@ namespace Viber\Api\Message;
  */
 interface Type
 {
-    const TEXT = 'text';
-    const PICTURE = 'picture';
-    const VIDEO = 'video';
-    const FILE = 'file';
-    const STICKER = 'sticker';
-    const CONTACT = 'contact';
-    const URL = 'url';
-    const LOCATION = 'location';
-    const RICH_MEDIA = 'rich_media';
+    public const TEXT = 'text';
+    public const PICTURE = 'picture';
+    public const VIDEO = 'video';
+    public const FILE = 'file';
+    public const STICKER = 'sticker';
+    public const CONTACT = 'contact';
+    public const URL = 'url';
+    public const LOCATION = 'location';
+    public const RICH_MEDIA = 'rich_media';
 }

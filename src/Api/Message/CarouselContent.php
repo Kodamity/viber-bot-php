@@ -66,7 +66,7 @@ class CarouselContent extends Message
                 'ButtonsGroupRows' => $this->getButtonsGroupRows(),
                 'BgColor' => $this->getBgColor(),
                 'Buttons' => $this->getButtonsApiArray(),
-            ]
+            ],
         ]);
     }
 

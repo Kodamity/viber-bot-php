@@ -30,21 +30,21 @@ class ButtonTest extends TestCase
         ->setTextSize('small');
 
         $this->assertEquals([
-          'Columns' => 1,
-          'Rows' => 1,
-          'BgColor' => '#000',
-          'BgMediaType' => 'picture',
-          'BgMedia' => 'https://some.url',
-          'BgLoop' => true,
-          'ActionType' => 'reply',
-          'ActionBody' => 'btn',
-          'Image' => 'https://some.url',
-          'Text' => 'btn text',
-          'TextVAlign' => 'top',
-          'TextHAlign' => 'center',
-          'TextOpacity' => 50,
-          'TextSize' => 'small',
-          'Silent' => true,
+            'Columns' => 1,
+            'Rows' => 1,
+            'BgColor' => '#000',
+            'BgMediaType' => 'picture',
+            'BgMedia' => 'https://some.url',
+            'BgLoop' => true,
+            'ActionType' => 'reply',
+            'ActionBody' => 'btn',
+            'Image' => 'https://some.url',
+            'Text' => 'btn text',
+            'TextVAlign' => 'top',
+            'TextHAlign' => 'center',
+            'TextOpacity' => 50,
+            'TextSize' => 'small',
+            'Silent' => true,
         ], $btn->toApiArray(), "Equal Button constructor");
     }
 }

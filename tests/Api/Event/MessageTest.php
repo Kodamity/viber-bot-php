@@ -19,7 +19,7 @@ class MessageTest extends TestCase
             "sender" => [
                 "id" => "01234567890A=",
                 "name" => "John McClane",
-                "avatar" => "http://avatar.example.com"
+                "avatar" => "http://avatar.example.com",
             ],
             "message" => [
                 "type" => "text",
@@ -27,10 +27,10 @@ class MessageTest extends TestCase
                 "media" => "http://example.com",
                 "location" => [
                     "lat" => 50.76891,
-                    "lon" => 6.11499
+                    "lon" => 6.11499,
                 ],
-                "tracking_data" => "tracking data"
-            ]
+                "tracking_data" => "tracking data",
+            ],
         ]);
         $this->assertEquals("msg", $event->getMessage()->getText());
     }

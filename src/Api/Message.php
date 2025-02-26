@@ -70,7 +70,7 @@ class Message extends Entity
             'tracking_data' => $this->getTrackingData(),
             'min_api_version' => $this->getMinApiVersion(),
             'keyboard' => $this->getKeyboard(),
-            'broadcast_list' => $this->getBroadcastList()
+            'broadcast_list' => $this->getBroadcastList(),
         ];
     }
 

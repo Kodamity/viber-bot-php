@@ -16,11 +16,11 @@ class State extends Entity
      *
      * @var integer
      */
-    const ONLINE = 0;
-    const OFFLINE = 1;
-    const UNDISCLOSED = 2;
-    const ERROR = 3;
-    const UNAVAILABLE = 4;
+    public const ONLINE = 0;
+    public const OFFLINE = 1;
+    public const UNDISCLOSED = 2;
+    public const ERROR = 3;
+    public const UNAVAILABLE = 4;
 
     /**
      * Viber user id

@@ -29,7 +29,7 @@ class ClientTest extends TestCase
         $this->expectExceptionMessageMatches('/^Invalid webhook .*/');
 
         (new Client([
-            'token' => 'some-token'
+            'token' => 'some-token',
         ]))
         ->setWebhook('http://some.url');
     }
@@ -46,13 +46,13 @@ class ClientTest extends TestCase
         $handler = HandlerStack::create(
             new MockHandler([
                 new Response(200, [], $responseData),
-            ])
+            ]),
         );
         $client = new Client([
             'token' => 'token',
             'http' => [
-                'handler' => $handler
-            ]
+                'handler' => $handler,
+            ],
         ]);
         $apinInfo = $client->call('get_account_info', []);
     }

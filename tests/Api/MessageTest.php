@@ -25,11 +25,13 @@ class MessageTest extends TestCase
                 ->setButtons([
                     (new Button())
                     ->setActionType('open-url')
-                    ->setActionBody('https://some.url')
-                ])
+                    ->setActionBody('https://some.url'),
+                ]),
             );
 
-        $this->assertEquals('open-url',
-            $message->getKeyboard()->getButtons()[0]->getActionType());
+        $this->assertEquals(
+            'open-url',
+            $message->getKeyboard()->getButtons()[0]->getActionType(),
+        );
     }
 }

@@ -20,7 +20,7 @@ class Client
      *
      * @var string
      */
-    const BASE_URI = 'https://chatapi.viber.com/pa/';
+    public const BASE_URI = 'https://chatapi.viber.com/pa/';
 
     /**
      * Access token
@@ -82,9 +82,9 @@ class Client
         try {
             $response = $this->http->request('POST', $method, [
                 'headers' => [
-                    'X-Viber-Auth-Token' => $this->token
+                    'X-Viber-Auth-Token' => $this->token,
                 ],
-                'json' => $data
+                'json' => $data,
             ]);
             return \Viber\Api\Response::create($response);
         } catch (\RuntimeException $e) {
@@ -156,7 +156,7 @@ class Client
     public function getUserDetails($userId)
     {
         return $this->call('get_user_details', [
-            'id' => $userId
+            'id' => $userId,
         ]);
     }
 
@@ -173,7 +173,7 @@ class Client
     public function getOnlineStatus(array $userIds)
     {
         return $this->call('get_online', [
-            'ids' => $userIds
+            'ids' => $userIds,
         ]);
     }
 

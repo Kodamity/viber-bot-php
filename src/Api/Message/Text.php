@@ -32,7 +32,7 @@ class Text extends Message
     public function toArray()
     {
         return array_merge(parent::toArray(), [
-            'text' => $this->getText()
+            'text' => $this->getText(),
         ]);
     }
 

@@ -15,7 +15,7 @@ class SenderTest extends TestCase
         $properties = [
             'id' => '1',
             'name' => '2',
-            'avatar' => '3'
+            'avatar' => '3',
         ];
         $sender = new Sender($properties);
         $this->assertEquals($properties, $sender->toArray());
@@ -25,7 +25,7 @@ class SenderTest extends TestCase
     public function testNullValues()
     {
         $properties = [
-            'name' => '2'
+            'name' => '2',
         ];
         $sender = new Sender($properties);
         $this->assertEquals($properties, $sender->toApiArray());

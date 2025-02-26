@@ -14,10 +14,10 @@ class ManagerTest extends TestCase
     public function testChecker()
     {
         $totalCalls = 0;
-        $m = new Manager(function($e) use (&$totalCalls) {
+        $m = new Manager(function ($e) use (&$totalCalls) {
             $totalCalls++;
             return true;
-        }, function($e) use (&$totalCalls) {
+        }, function ($e) use (&$totalCalls) {
             $totalCalls++;
             return true;
         });
@@ -28,10 +28,10 @@ class ManagerTest extends TestCase
     public function testHandler()
     {
         $totalCalls = 0;
-        $m = new Manager(function($e) use (&$totalCalls) {
+        $m = new Manager(function ($e) use (&$totalCalls) {
             $totalCalls++;
             return true;
-        }, function($e) use (&$totalCalls) {
+        }, function ($e) use (&$totalCalls) {
             $totalCalls++;
             return true;
         });
@@ -42,10 +42,10 @@ class ManagerTest extends TestCase
     public function testIsMatch()
     {
         $totalCalls = 0;
-        $m = new Manager(function($e) use (&$totalCalls) {
+        $m = new Manager(function ($e) use (&$totalCalls) {
             $totalCalls++;
             return false;
-        }, function($e) use (&$totalCalls) {
+        }, function ($e) use (&$totalCalls) {
             $totalCalls++;
             return true;
         });

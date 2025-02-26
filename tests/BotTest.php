@@ -8,7 +8,7 @@ use Viber\Bot;
 use Viber\Api\Event;
 use Viber\Api\Signature;
 
-require_once(__DIR__.'/Functions.php');
+require_once(__DIR__ . '/Functions.php');
 
 /**
  * @author Novikov Bogdan <hcbogdan@gmail.com>
@@ -41,7 +41,7 @@ class BotTest extends TestCase
             function ($e) use (&$totalCalls) {
                 $totalCalls++;
                 return true;
-            }
+            },
         )
         ->run(new Event([]));
         $this->assertEquals(2, $totalCalls);
@@ -57,7 +57,7 @@ class BotTest extends TestCase
             function ($e) use (&$totalCalls) {
                 $totalCalls++;
                 return true;
-            }
+            },
         )
         ->run(new Event([]));
         $this->assertEquals(0, $totalCalls);
@@ -118,7 +118,7 @@ class BotTest extends TestCase
 
         $stub->method('getSignHeaderValue')
             ->willReturn(
-                Signature::make($inputBody, '-')
+                Signature::make($inputBody, '-'),
             );
 
         $stub->run();
@@ -141,7 +141,7 @@ class BotTest extends TestCase
             ->willReturn($inputBody);
         $stub->method('getSignHeaderValue')
             ->willReturn(
-                Signature::make($inputBody, '-')
+                Signature::make($inputBody, '-'),
             );
 
         $stub->run();
@@ -164,7 +164,7 @@ class BotTest extends TestCase
             ->willReturn($inputBody);
         $stub->method('getSignHeaderValue')
             ->willReturn(
-                Signature::make($inputBody, '-')
+                Signature::make($inputBody, '-'),
             );
 
         $stub->run();
@@ -186,7 +186,7 @@ class BotTest extends TestCase
             ->willReturn($inputBody);
         $stub->method('getSignHeaderValue')
             ->willReturn(
-                Signature::make($inputBody, '-')
+                Signature::make($inputBody, '-'),
             );
 
         $stub->run();
@@ -211,7 +211,7 @@ class BotTest extends TestCase
                 "sender" => [
                     "id" => "01234567890A=",
                     "name" => "John McClane",
-                    "avatar" => "http://avatar.example.com"
+                    "avatar" => "http://avatar.example.com",
                 ],
                 "message" => [
                     "type" => "text",
@@ -219,11 +219,11 @@ class BotTest extends TestCase
                     "media" => "http://example.com",
                     "location" => [
                         "lat" => 50.76891,
-                        "lon" => 6.11499
+                        "lon" => 6.11499,
                     ],
-                    "tracking_data" => "tracking data"
-                ]
-            ])
+                    "tracking_data" => "tracking data",
+                ],
+            ]),
         );
         $this->assertEquals(1, $totalCalls);
     }
@@ -244,16 +244,16 @@ class BotTest extends TestCase
                     "sender" => [
                         "id" => "01234567890A=",
                         "name" => "John McClane",
-                        "avatar" => "http://avatar.example.com"
+                        "avatar" => "http://avatar.example.com",
                     ],
                     "message" => [
                         "type" => "picture",
                         "text" => "Photo description",
                         "media" => "http://www.images.com/img.jpg",
                         "thumbnail" => "http://www.images.com/thumb.jpg",
-                        "tracking_data" => "tracking data"
-                    ]
-                ])
+                        "tracking_data" => "tracking data",
+                    ],
+                ]),
             );
         $this->assertEquals(1, $totalCalls);
     }
@@ -279,9 +279,9 @@ class BotTest extends TestCase
                     "avatar" => "http://avatar.example.com",
                     "country" => "UK",
                     "language" => "en",
-                    "api_version" => 1
-                ]
-            ])
+                    "api_version" => 1,
+                ],
+            ]),
         );
         $this->assertEquals(1, $totalCalls);
     }
@@ -291,7 +291,7 @@ class BotTest extends TestCase
         $textMessage = new \Viber\Api\Message\Text([
             'sender' => [
                 'name' => 'hi bot',
-                'avatar' => 'https://my.avatar/pict.jpg'
+                'avatar' => 'https://my.avatar/pict.jpg',
             ],
             'receiver' => '01234567890A=',
             'text' => 'Can i help you?',
@@ -299,7 +299,7 @@ class BotTest extends TestCase
         ]);
         \Viber\Tests\Output::reset();
         $this->expectOutputString(
-            json_encode($textMessage->toApiArray())
+            json_encode($textMessage->toApiArray()),
         );
         // build bot
         (new Bot(['token' => '-']))
@@ -319,9 +319,9 @@ class BotTest extends TestCase
                     "avatar" => "http://avatar.example.com",
                     "country" => "UK",
                     "language" => "en",
-                    "api_version" => 1
-                ]
-            ])
+                    "api_version" => 1,
+                ],
+            ]),
         );
         $this->assertContains(['Content-Type: application/json'], \Viber\Tests\Output::$headers);
     }

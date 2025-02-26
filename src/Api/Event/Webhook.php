@@ -9,6 +9,4 @@ use Viber\Api\Event;
  *
  * @author An Hoang <hoangthienan@gmail.com>
  */
-class Webhook extends Event
-{
-}
+class Webhook extends Event {}

@@ -28,7 +28,7 @@ class FactoryTest extends TestCase
             "media" => "http://example.com",
             "location" => [
                 "lat" => 50.76891,
-                "lon" => 6.11499
+                "lon" => 6.11499,
             ],
             "tracking_data" => "tracking data",
         ];
@@ -44,11 +44,11 @@ class FactoryTest extends TestCase
             Type::STICKER,
             Type::CONTACT,
             Type::URL,
-            Type::LOCATION
+            Type::LOCATION,
         ];
         foreach ($testList as $messageType) {
-            $message = Factory::makeFromApi( $this->build($messageType) );
-            $this->assertEquals('Viber\\Api\\Message\\'.ucfirst($messageType), get_class($message));
+            $message = Factory::makeFromApi($this->build($messageType));
+            $this->assertEquals('Viber\\Api\\Message\\' . ucfirst($messageType), get_class($message));
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Viber\Bot;
 
-use \Viber\Api\Event;
+use Viber\Api\Event;
 
 /**
  * Bot event manager.

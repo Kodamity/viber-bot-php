@@ -7,6 +7,4 @@ namespace Viber\Api\Exception;
  *
  * @author Novikov Bogdan <hcbogdan@gmail.com>
  */
-class ApiException extends \RuntimeException
-{
-}
+class ApiException extends \RuntimeException {}

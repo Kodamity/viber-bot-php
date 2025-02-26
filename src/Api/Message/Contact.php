@@ -32,7 +32,7 @@ class Contact extends Message
      */
     protected $propertiesMap = [
         'contact' => 'setConcat',
-        'text' => 'setText'
+        'text' => 'setText',
     ];
 
     /**
@@ -52,7 +52,7 @@ class Contact extends Message
             'contact' => [
                 'name' => $this->getName(),
                 'phone_number' => $this->getPhoneNumber(),
-            ]
+            ],
         ]);
     }
 

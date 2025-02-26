@@ -9,12 +9,12 @@ namespace Viber\Api\Event;
  */
 interface Type
 {
-    const DELIVERED = 'delivered';
-    const SEEN = 'seen';
-    const FAILED = 'failed';
-    const SUBSCRIBED = 'subscribed';
-    const UNSUBSCRIBED = 'unsubscribed';
-    const CONVERSATION = 'conversation_started';
-    const MESSAGE = 'message';
-    const WEBHOOK = 'webhook';
+    public const DELIVERED = 'delivered';
+    public const SEEN = 'seen';
+    public const FAILED = 'failed';
+    public const SUBSCRIBED = 'subscribed';
+    public const UNSUBSCRIBED = 'unsubscribed';
+    public const CONVERSATION = 'conversation_started';
+    public const MESSAGE = 'message';
+    public const WEBHOOK = 'webhook';
 }

@@ -35,9 +35,11 @@ class Response
         // - validate internal data
         if (isset($data['status'])) {
             if ($data['status'] != 0) {
-                throw new ApiException('Remote error: ' .
+                throw new ApiException(
+                    'Remote error: ' .
                     (isset($data['status_message']) ? $data['status_message'] : '-'),
-                    $data['status']);
+                    $data['status'],
+                );
             }
             $item = new self();
             $item->data = $data;

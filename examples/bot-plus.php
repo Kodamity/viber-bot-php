@@ -49,7 +49,7 @@ try {
                 ->setText("Hi, you can see some demo: send 'k1' or 'k2' etc.")
                 ->setKeyboard(
                     (new \Viber\Api\Keyboard())
-                        ->setButtons($buttons)
+                        ->setButtons($buttons),
                 );
         })
         // when user subscribe to PA
@@ -58,7 +58,7 @@ try {
             $this->getClient()->sendMessage(
                 (new \Viber\Api\Message\Text())
                     ->setSender($botSender)
-                    ->setText('Thanks for subscription!')
+                    ->setText('Thanks for subscription!'),
             );
         })
         ->onText('|btn-click|s', function ($event) use ($bot, $botSender, $log) {
@@ -68,11 +68,11 @@ try {
                 (new \Viber\Api\Message\Text())
                     ->setSender($botSender)
                     ->setReceiver($receiverId)
-                    ->setText('you press the button')
+                    ->setText('you press the button'),
             );
         })
         ->onText('|k\d+|is', function ($event) use ($bot, $botSender, $log) {
-            $caseNumber = (int)preg_replace('|[^0-9]|s', '', $event->getMessage()->getText());
+            $caseNumber = (int) preg_replace('|[^0-9]|s', '', $event->getMessage()->getText());
             $log->info('onText demo handler #' . $caseNumber);
             $client = $bot->getClient();
             $receiverId = $event->getSender()->getId();
@@ -89,12 +89,12 @@ try {
                                         (new \Viber\Api\Keyboard\Button())
                                             ->setActionType('reply')
                                             ->setActionBody('btn-click')
-                                            ->setText('Tap this button')
-                                    ])
-                            )
+                                            ->setText('Tap this button'),
+                                    ]),
+                            ),
                     );
                     break;
-                //
+                    //
                 case 1:
                     $client->sendMessage(
                         (new \Viber\Api\Message\Text())
@@ -126,69 +126,69 @@ try {
                                             ->setActionType('reply')
                                             ->setActionBody('btn-click')
                                             ->setText('Button 3'),
-                                    ])
-                            )
+                                    ]),
+                            ),
                     );
                     break;
-                //
+                    //
                 case 2:
                     $client->sendMessage(
                         (new \Viber\Api\Message\Contact())
                             ->setSender($botSender)
                             ->setReceiver($receiverId)
                             ->setName('Novikov Bogdan')
-                            ->setPhoneNumber('+380000000000')
+                            ->setPhoneNumber('+380000000000'),
                     );
                     break;
-                //
+                    //
                 case 3:
                     $client->sendMessage(
                         (new \Viber\Api\Message\Location())
                             ->setSender($botSender)
                             ->setReceiver($receiverId)
                             ->setLat(48.486504)
-                            ->setLng(35.038910)
+                            ->setLng(35.038910),
                     );
                     break;
-                //
+                    //
                 case 4:
                     $client->sendMessage(
                         (new \Viber\Api\Message\Sticker())
                             ->setSender($botSender)
                             ->setReceiver($receiverId)
-                            ->setStickerId(114408)
+                            ->setStickerId(114408),
                     );
                     break;
-                //
+                    //
                 case 5:
                     $client->sendMessage(
                         (new \Viber\Api\Message\Url())
                             ->setSender($botSender)
                             ->setReceiver($receiverId)
-                            ->setMedia('https://hcbogdan.com')
+                            ->setMedia('https://hcbogdan.com'),
                     );
                     break;
-                //
+                    //
                 case 6:
                     $client->sendMessage(
                         (new \Viber\Api\Message\Picture())
                             ->setSender($botSender)
                             ->setReceiver($receiverId)
                             ->setText('some media data')
-                            ->setMedia('https://developers.viber.com/img/devlogo.png')
+                            ->setMedia('https://developers.viber.com/img/devlogo.png'),
                     );
                     break;
-                //
+                    //
                 case 7:
                     $client->sendMessage(
                         (new \Viber\Api\Message\Video())
                             ->setSender($botSender)
                             ->setReceiver($receiverId)
                             ->setSize(2 * 1024 * 1024)
-                            ->setMedia('http://techslides.com/demos/sample-videos/small.mp4')
+                            ->setMedia('http://techslides.com/demos/sample-videos/small.mp4'),
                     );
                     break;
-                //
+                    //
                 case 8:
                     $client->sendMessage(
                         (new \Viber\Api\Message\CarouselContent())
@@ -214,8 +214,8 @@ try {
                                     ->setTextSize("large")
                                     ->setTextVAlign("middle")
                                     ->setTextHAlign("middle")
-                                    ->setImage('https://s14.postimg.org/4mmt4rw1t/Button.png')
-                            ])
+                                    ->setImage('https://s14.postimg.org/4mmt4rw1t/Button.png'),
+                            ]),
                     );
                     break;
             }

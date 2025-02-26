@@ -26,7 +26,7 @@ class FactoryTest extends TestCase
         $this->expectExceptionMessageMatches('/Unknow.*/');
 
         Factory::makeFromApi([
-            'event' => '8)'
+            'event' => '8)',
         ]);
     }
 
@@ -40,8 +40,8 @@ class FactoryTest extends TestCase
                     "event" => "delivered",
                     "timestamp" => 1457764197627,
                     "message_token" => 491266184665523145,
-                    "user_id" => "01234567890A="
-                ]
+                    "user_id" => "01234567890A=",
+                ],
             ],
             [
                 'type' => Type::SUBSCRIBED,
@@ -55,10 +55,10 @@ class FactoryTest extends TestCase
                         "avatar" => "http://avatar.example.com",
                         "country" => "UK",
                         "language" => "en",
-                        "api_version" => 1
+                        "api_version" => 1,
                     ],
-                    "message_token" => 4912661846655238145
-                ]
+                    "message_token" => 4912661846655238145,
+                ],
             ],
             [
                 'type' => Type::UNSUBSCRIBED,
@@ -67,7 +67,7 @@ class FactoryTest extends TestCase
                     "event" => "unsubscribed",
                     "timestamp" => 1457764197627,
                     "user_id" => "01234567890A=",
-                    "message_token" => 4912661846655238145
+                    "message_token" => 4912661846655238145,
                 ],
             ],
             [
@@ -85,8 +85,8 @@ class FactoryTest extends TestCase
                         "avatar" => "http://avatar.example.com",
                         "country" => "UK",
                         "language" => "en",
-                        "api_version" => 1
-                    ]
+                        "api_version" => 1,
+                    ],
                 ],
             ],
             [
@@ -96,8 +96,8 @@ class FactoryTest extends TestCase
                     "event" => "delivered",
                     "timestamp" => 1457764197627,
                     "message_token" => 4912661846655238145,
-                    "user_id" => "01234567890A="
-                ]
+                    "user_id" => "01234567890A=",
+                ],
             ],
             [
                 'type' => Type::SEEN,
@@ -106,8 +106,8 @@ class FactoryTest extends TestCase
                     "event" => "seen",
                     "timestamp" => 1457764197627,
                     "message_token" => 4912661846655238145,
-                    "user_id" => "01234567890A="
-                ]
+                    "user_id" => "01234567890A=",
+                ],
             ],
             [
                 'type' => Type::FAILED,
@@ -117,8 +117,8 @@ class FactoryTest extends TestCase
                     "timestamp" => 1457764197627,
                     "message_token" => 4912661846655238145,
                     "user_id" => "01234567890A=",
-                    "desc" => "failure description."
-                ]
+                    "desc" => "failure description.",
+                ],
             ],
             [
                 'type' => Type::MESSAGE,
@@ -130,7 +130,7 @@ class FactoryTest extends TestCase
                     "sender" => [
                         "id" => "01234567890A=",
                         "name" => "John McClane",
-                        "avatar" => "http://avatar.example.com"
+                        "avatar" => "http://avatar.example.com",
                     ],
                     "message" => [
                         "type" => "text",
@@ -138,11 +138,11 @@ class FactoryTest extends TestCase
                         "media" => "http://example.com",
                         "location" => [
                             "lat" => 50.76891,
-                            "lon" => 6.11499
+                            "lon" => 6.11499,
                         ],
-                        "tracking_data" => "tracking data"
-                    ]
-                ]
+                        "tracking_data" => "tracking data",
+                    ],
+                ],
             ],
         ];
 
