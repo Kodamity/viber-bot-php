@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * Author: Misha Serenkov
- * Email: mi.serenkov@gmail.com
- * Date: 23.05.2022 21:09
- */
 
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
@@ -17,7 +11,6 @@ $rules = [
     ],
 ];
 
-
 $finder = Finder::create()
     ->in([
         'src',
@@ -25,7 +18,6 @@ $finder = Finder::create()
         'tests'
     ])
     ->name('*.php')
-    ->notName('**/*.blade.php')
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 

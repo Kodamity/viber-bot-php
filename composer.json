@@ -1,5 +1,5 @@
 {
-    "name": "laramity/viber-bot-php",
+    "name": "kodamity/viber-bot-php",
     "description": "Php bot interface to work with Viber API",
     "license": "MIT",
     "type": "library",

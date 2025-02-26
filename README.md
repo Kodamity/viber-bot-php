@@ -1,14 +1,20 @@
+<p align="center"><img src="https://raw.githubusercontent.com/Kodamity/.github/refs/heads/main/art/logo.svg" alt="Kodamity Logo"></p>
+
 # PHP sdk for Viber api
 
-[![Build
-Status](https://secure.travis-ci.org/Bogdaan/viber-bot-php.png)](http://travis-ci.org/Bogdaan/viber-bot-php)
+<p align="center">
+<a href="https://github.com/kodamity/viber-bot-php/actions?query=workflow%3Atests+branch%3Amain"><img src="https://img.shields.io/github/actions/workflow/status/kodamity/viber-bot-php/tests.yml?branch=main&label=tests&style=flat-square" alt="Build Status"></a>
+<a href="https://packagist.org/packages/kodamity/viber-bot-php"><img src="https://img.shields.io/packagist/dt/kodamity/viber-bot-php.svg?style=flat-square" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/kodamity/viber-bot-php"><img src="https://img.shields.io/packagist/v/kodamity/viber-bot-php.svg?style=flat-square" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/kodamity/viber-bot-php"><img src="https://img.shields.io/packagist/l/kodamity/viber-bot-php" alt="License"></a>
+</p>
 
 Library to develop a bot for the Viber platform. [Create you first Viber bot step by step](docs/first-steps.md), see demo at `viber://pa?chatURI=viber-bot-php&context=github.com`
 
 ## Installation
 
 ```
-composer require bogdaan/viber-bot-php
+composer require kodamity/viber-bot-php
 ```
 
 ## Example
@@ -124,6 +130,31 @@ See more in **examples** directory.
 - [ ] implement log levels with monolog?
 - [ ] post on public page
 
+
+## Testing
+
+```bash
+composer test
+```
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
 ## Contributing
 
-Pull requests are welcome.
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## Security Vulnerabilities
+
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+
+## Credits
+
+- [:author_name](https://github.com/:author_username)
+- [All Contributors](../../contributors)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+

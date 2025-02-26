@@ -1,27 +1,22 @@
 includes:
     - ./vendor/phpstan/phpstan-deprecation-rules/rules.neon
-
-services:
+    - ./vendor/phpstan/phpstan-phpunit/extension.neon
+    - ./phpstan-baseline.neon
 
 parameters:
     parallel:
         processTimeout: 1200.0
 
-    stubFiles:
-        - phpstan-annotation.php.stub
-
     paths:
         - src
         - tests
 
-    # The level 9 is the highest level
     level: 5
-
-    ignoreErrors:
 
     excludePaths:
         - examples/
         - *.php.stub
         - *.stub
 
+    tmpDir: build/phpstan
     reportUnmatchedIgnoredErrors: false

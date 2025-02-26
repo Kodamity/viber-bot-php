@@ -61,6 +61,14 @@ grumphp:
       triggered_by: [ 'php' ]
       memory_limit: "-1"
       use_grumphp_paths: true
+    phpunit:
+      config_file: ~
+      testsuite: ~
+      group: [ ]
+      exclude_group: [ ]
+      always_execute: false
+      metadata:
+        priority: 100
     securitychecker_composeraudit:
       format: table
       locked: true
